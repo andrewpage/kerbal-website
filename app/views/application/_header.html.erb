@@ -18,8 +18,12 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li class="<%= cp('') %>"><%= link_to 'Sign Up', '' %></li>
-        <li class="<%= cp('') %>"><%= link_to 'Sign In', '' %></li>
+        <% if !account_signed_in? %>
+          <li class="<%= cp('new_account_registration_path') %>"><%= link_to 'Sign Up', new_account_registration_path %></li>
+          <li class="<%= cp('new_account_session_path') %>"><%= link_to 'Sign In', new_account_session_path %></li>
+        <% else %>
+          <li><%= link_to 'Sign Out', destroy_account_session_path, method: :delete %></li>
+        <% end %>
       </ul>
 
       <form class="navbar-form navbar-right" style="margin-right: 2px;">
