@@ -3,7 +3,7 @@ class Account < ActiveRecord::Base
   devise :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  #has_many :items
+  has_many :mods
 
   validates :username, presence: true,
   					   length: { in: 5..25 },

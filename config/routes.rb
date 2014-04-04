@@ -3,6 +3,9 @@ Kerbalsite::Application.routes.draw do
 
   resources :accounts
 
+  resources :mods do
+  end
+
   match 'contact', to: 'pages#contact', via: 'get'
 
   root to: 'pages#home'

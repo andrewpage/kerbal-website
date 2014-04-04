@@ -1,0 +1,15 @@
+<h1>Mods</h1>
+
+<table class="table">
+	<tr>
+		<th>Name</th>
+		<th>Version</th>
+	</tr>
+
+	<% @mods.each do |mod| %>
+	<tr>
+		<td><%= mod.name %></td>
+		<td><%= mod.version %></td>
+	</tr>
+	<% end %>
+</table>
