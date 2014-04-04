@@ -6,14 +6,14 @@
 			<legend>Sign In</legend>
 
 			<div class="form-group">
-				<label for="inputEmail" class="col-lg-2 control-label">Email</label>
+				<label class="col-lg-2 control-label">Username</label>
 				<div class="col-lg-10">
-					<%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email' %>
+					<%= f.text_field :username, autofocus: true, class: 'form-control', placeholder: 'Username' %>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label for="inputEmail" class="col-lg-2 control-label">Password</label>
+				<label class="col-lg-2 control-label">Password</label>
 				<div class="col-lg-10">
 					<%= f.password_field :password, autocomplete: 'off', class: 'form-control', placeholder: 'Password' %>
 				</div>
@@ -21,7 +21,7 @@
 
 			<% if devise_mapping.rememberable? -%>
 			<div class="form-group">
-				<label for="inputEmail" class="col-lg-2 control-label">Remember me</label>
+				<label class="col-lg-2 control-label">Remember me</label>
 				<div class="col-lg-10">
 					<%= f.check_box :remember_me %>
 				</div>

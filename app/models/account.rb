@@ -1,5 +1,6 @@
 class Account < ActiveRecord::Base
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :authentication_keys => [ :username ]
+  devise :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   #has_many :items
