@@ -16,17 +16,15 @@
 				<label class="col-lg-2 control-label">Password</label>
 				<div class="col-lg-10">
 					<%= f.password_field :password, autocomplete: 'off', class: 'form-control', placeholder: 'Password' %>
+					<% if devise_mapping.rememberable? -%>
+					<div class="checkbox">
+			          <label>
+			            <%= f.check_box :remember_me %> Remember Me
+			          </label>
+			        </div>
+		        <% end %>
 				</div>
 			</div> 
-
-			<% if devise_mapping.rememberable? -%>
-			<div class="form-group">
-				<label class="col-lg-2 control-label">Remember me</label>
-				<div class="col-lg-10">
-					<%= f.check_box :remember_me %>
-				</div>
-			</div> 
-			<% end %>
 
 			<div class="form-group">
 				<div class="col-lg-10 col-lg-offset-2">

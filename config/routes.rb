@@ -7,6 +7,7 @@ Kerbalsite::Application.routes.draw do
   end
 
   match 'contact', to: 'pages#contact', via: 'get'
+  match 'search', to: 'pages#search', via: 'get'
 
   root to: 'pages#home'
 end

@@ -8,8 +8,10 @@
 
 	<% @mods.each do |mod| %>
 	<tr>
-		<td><%= mod.name %></td>
+		<td><%= link_to mod.name, mod %></td>
 		<td><%= mod.version %></td>
 	</tr>
 	<% end %>
 </table>
+
+<h3><%= link_to 'Create new mod', new_mod_path %></h3>

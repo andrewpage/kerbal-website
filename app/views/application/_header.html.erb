@@ -12,23 +12,16 @@
     <div class="navbar-collapse collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav">
         <li class="<%= cp(root_path) %>"><%= link_to 'Home', root_path %></li>
-        <li class="<%= cp('') %>"><%= link_to 'Mods', mods_path %></li>
+        <li class="<%= cp(mods_path) %>"><%= link_to 'Mods', mods_path %></li>
         <li class="<%= cp('') %>"><%= link_to 'Crafts', '' %></li>
         <li class="<%= cp('') %>"><%= link_to 'Parts', '' %></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <% if !account_signed_in? %>
-          <li class="<%= cp('new_account_registration_path') %>"><%= link_to 'Sign Up', new_account_registration_path %></li>
-          <li class="<%= cp('new_account_session_path') %>"><%= link_to 'Sign In', new_account_session_path %></li>
-        <% else %>
-          <li><%= link_to 'Sign Out', destroy_account_session_path, method: :delete %></li>
-        <% end %>
+        <%= render partial: 'header_search' %>
+        <%= render partial: 'header_authentication' %>
       </ul>
 
-      <form class="navbar-form navbar-right" style="margin-right: 2px;">
-        <input type="text" class="form-control col-lg-8" placeholder="Search">
-      </form>
     </div>
   </div>
 </div>

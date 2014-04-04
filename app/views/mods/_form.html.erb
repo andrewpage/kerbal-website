@@ -1,0 +1,9 @@
+<%= form_for @mod do |f| %>
+	<%= f.label :name %> <%= f.text_field :name %> <br />
+	<%= f.label 'Short Description' %> <%= f.text_area :description_short %> <br />
+	<%= f.label 'Description' %> <%= f.text_area :description %> <br />
+	<%= f.label :version %> <%= f.text_field :version %> <br />
+	<%= f.label :tags %> <%= f.text_field :tags %> <br />
+	<%= f.label :download_count %> <%= f.text_field :download_count %> <br />
+	<%= f.submit :create %>
+<% end %>
