@@ -12,6 +12,8 @@ gem 'font-awesome-rails'
 gem 'bootstrap-sass' # Bootstrap
 gem 'bootswatch-rails'
 
+gem 'country_select'
+
 gem 'rails_config'
 
 gem 'devise'
