@@ -1,4 +1,6 @@
 class ModsController < ApplicationController
+	before_action :authenticate_account!, except: [:index, :show]
+
 	def index
 		@mods = Mod.all
 	end
