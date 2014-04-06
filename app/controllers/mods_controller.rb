@@ -32,6 +32,9 @@ class ModsController < ApplicationController
 	end
 
 	def subscribe
+    @mod = Mod.find(params[:id])
+    flash[:success] = 'You have subscribed to ' + @mod.name + '.'
+    redirect_to @mod
 	end
 
 	def download

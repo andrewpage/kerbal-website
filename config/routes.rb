@@ -4,10 +4,20 @@ Kerbalsite::Application.routes.draw do
   resources :accounts
 
   resources :mods do
+    member do
+      get :download
+      get :subscribe
+    end
   end
 
-  match 'contact', to: 'pages#contact', via: 'get'
-  match 'search', to: 'pages#search', via: 'get'
+  resources :pages, path: '/', only: [] do
+    collection do
+      get :home
+      get :contact
+      get :faq
+      get :search
+    end
+  end
 
   root to: 'pages#home'
 end

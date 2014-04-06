@@ -7,4 +7,7 @@ class PagesController < ApplicationController
 
   def search
   end
+
+  def faq
+  end
 end
