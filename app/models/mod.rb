@@ -4,6 +4,8 @@ class Mod < ActiveRecord::Base
 	#belongs_to :category
 	#has_and_belongs_to_many :tags
 
+  has_attached_file :image
+
 	validates :name, presence: true, length: { in: 1..30 }
 	validates :description, presence: true, length: { in: 1..500 }
 	
