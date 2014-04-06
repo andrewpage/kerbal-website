@@ -14,6 +14,9 @@ gem 'bootswatch-rails'
 
 gem 'country_select'
 
+gem 'paperclip'
+gem 'aws-sdk'
+
 gem 'rails_config'
 
 gem 'devise'
