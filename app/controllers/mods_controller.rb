@@ -42,6 +42,6 @@ class ModsController < ApplicationController
 
 	private
 	def mod_params
-		params.require(:mod).permit(:name, :description, :description_short, :version, :tags, :download_count, :avatar)
+		params.require(:mod).permit(:name, :description, :description_short, :version, :tags, :download_count, :image)
 	end
 end
