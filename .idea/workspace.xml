@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee8d43d2-038e-4fcb-bda1-b70fa27e5a7b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/kerbalsite.iml" afterPath="$PROJECT_DIR$/.idea/kerbalsite.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/mods/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/mods/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/mod.rb" afterPath="$PROJECT_DIR$/app/models/mod.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/mods_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/mods_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/mods/show.html.erb" afterPath="$PROJECT_DIR$/app/views/mods/show.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/paperclip.rb" afterPath="$PROJECT_DIR$/config/initializers/paperclip.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kerbalsite.iws" />
@@ -151,6 +145,7 @@
         <option value="$PROJECT_DIR$/app/views/mods/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/mods_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/mods/show.html.erb" />
+        <option value="$PROJECT_DIR$/config/initializers/paperclip.rb" />
       </list>
     </option>
   </component>
