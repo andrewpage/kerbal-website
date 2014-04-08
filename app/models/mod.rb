@@ -7,7 +7,6 @@ class Mod < ActiveRecord::Base
   acts_as_votable # Likes / Dislikes
 
   acts_as_taggable
-  acts_as_taggable_on :type, :category # Mod Type and Mod Category (Part, Etc). Possibly consolidate into one.
 
   searchkick
 
