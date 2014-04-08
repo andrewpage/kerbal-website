@@ -2,7 +2,7 @@ class ModsController < ApplicationController
 	before_action :authenticate_account!, except: [:index, :show]
 
 	def index
-		@mods = Mod.all
+		@mods = Mod.paginate(:page => params[:page], :per_page => 15)
 	end
 
 	def show

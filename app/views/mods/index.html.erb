@@ -38,5 +38,8 @@
           </div>
       <% end %>
     </div>
+    <div align="center">
+        <%= will_paginate @mods, renderer: BootstrapPagination::Rails %>
+    </div>
   </div>
 </div>

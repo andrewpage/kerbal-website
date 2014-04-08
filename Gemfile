@@ -17,6 +17,9 @@ gem 'country_select'
 gem 'paperclip'
 gem 'aws-sdk'
 
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
+
 gem 'rails_config'
 
 gem 'acts_as_votable'
