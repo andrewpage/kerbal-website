@@ -20,6 +20,8 @@ gem 'aws-sdk'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 
+gem 'acts-as-taggable-on'
+
 gem 'rails_config'
 
 gem 'acts_as_votable'

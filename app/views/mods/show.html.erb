@@ -22,16 +22,24 @@
         <%= link_to 'YouTube Documentation', @mod.youtube_url %>
       </div>
       <div class="ratings">
-        <p class="pull-right"><%= @mod.download_count %> downloads</p>
+        <p class="pull-right">
+          <%= @mod.download_count %> downloads<br />
+          <%= @mod.vote_tally %> likes
+        </p>
 
         <%
             like_label = (current_account.voted_up_on? @mod) ? 'Unlike' : 'Like'
             dislike_label = (current_account.voted_down_on? @mod) ? 'Undislike' : 'Dislike'
         %>
         <p>
-          <span class="label label-default"><%= @mod.vote_tally %> likes</span>
+          <span class="label label-default"></span>
           <%= link_to like_label, like_mod_path, class: 'btn btn-primary btn-sm' %>
           <%= link_to dislike_label, dislike_mod_path, class: 'btn btn-primary btn-sm' %>
+        </p>
+        <p>
+          <% @mod.tags.each do |tag| %>
+              <span class="label label-default"><%= link_to tag, '#SORT BY THIS TAG#', class: 'tag-link' %></span>
+          <% end %>
         </p>
       </div>
     </div>

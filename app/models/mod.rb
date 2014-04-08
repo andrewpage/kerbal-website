@@ -6,6 +6,8 @@ class Mod < ActiveRecord::Base
 
   acts_as_votable # Likes / Dislikes
 
+  acts_as_taggable
+
   has_attached_file :image
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 
@@ -19,7 +21,6 @@ class Mod < ActiveRecord::Base
   validates :description_short, presence: true, length: { in: 1..100 }
 	validates :version, presence: true
 
-	validates :tags, presence: true
   validates :youtube_url, presence: true, url: true
 
   def vote_tally
