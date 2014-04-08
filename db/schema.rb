@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140408052107) do
+ActiveRecord::Schema.define(version: 20140408060009) do
 
   create_table "accounts", force: true do |t|
     t.string   "username"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20140408052107) do
     t.string   "description_short"
     t.float    "version"
     t.string   "tags"
-    t.integer  "download_count"
+    t.integer  "download_count",        default: 0
     t.integer  "account_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -50,7 +50,11 @@ ActiveRecord::Schema.define(version: 20140408052107) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "youtube_link"
+    t.string   "youtube_url"
+    t.string   "mod_file_file_name"
+    t.string   "mod_file_content_type"
+    t.integer  "mod_file_file_size"
+    t.datetime "mod_file_updated_at"
   end
 
   create_table "votes", force: true do |t|

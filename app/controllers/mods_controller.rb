@@ -20,7 +20,6 @@ class ModsController < ApplicationController
 			flash[:success] = 'Mod has been successfully created.'
 			redirect_to @mod
 		else
-			flash[:danger] = 'Mod has not been created.'
 			render 'new'
 		end
 	end
@@ -66,6 +65,6 @@ class ModsController < ApplicationController
 
 	private
 	def mod_params
-		params.require(:mod).permit(:name, :description, :description_short, :version, :tags, :download_count, :image)
+		params.require(:mod).permit(:name, :description, :description_short, :version, :tags, :download_count, :image, :youtube_url, :mod_file)
   end
 end

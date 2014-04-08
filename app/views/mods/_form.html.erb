@@ -1,10 +1,89 @@
-<%= form_for @mod do |f| %>
-	<%= f.label :name %> <%= f.text_field :name %> <br />
-	<%= f.label 'Short Description' %> <%= f.text_area :description_short %> <br />
-	<%= f.label 'Description' %> <%= f.text_area :description %> <br />
-	<%= f.label :version %> <%= f.text_field :version %> <br />
-	<%= f.label :tags %> <%= f.text_field :tags %> <br />
-    <%= f.label :image %><%= f.file_field :image %> <br />
-    <%= f.label 'Youtube Link' %> <%= f.text_field :youtube_link %> <br />
-	<%= f.submit :create %>
-<% end %>
+<div class="block-form">
+    <h2>Upload New Mod</h2>
+    <hr/>
+
+  <% if @mod.errors.full_messages.any? %>
+      <div class="alert alert-danger alert-block">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <h4><%= @mod.errors.full_messages.count %> errors prevented this form from being registered:</h4>
+        <ul>
+          <% @mod.errors.full_messages.each do |error_message| %>
+              <li><h5><%= error_message %></h5></li>
+          <% end %>
+        </ul>
+      </div>
+  <% end %>
+
+    <div class="well">
+      <%= form_for @mod, html: { class: 'form-horizontal '} do |f| %>
+          <fieldset>
+            <legend>Details</legend>
+            <div class="form-group">
+              <div class="col-lg-12">
+                <%= f.text_field :name, class: 'form-control input-lg', placeholder: 'Name' %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-lg-12">
+                <%= f.text_field :description_short, class: 'form-control input-lg', placeholder: 'Short Description' %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-lg-12">
+                <%= f.text_area :description, class: 'form-control input-lg', placeholder: 'Description' %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-lg-12">
+                <%= f.select :version, ['0.21.0', '0', '0'], { prompt: 'KSP Version' }, { class: 'form-control input-lg' }%>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Mod File</legend>
+            <div class="form-group">
+              <div class="col-lg-12">
+                <%= f.file_field :mod_file, class: 'form-control input-lg' %>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Image</legend>
+            <div class="form-group">
+              <div class="col-lg-12">
+                <%= f.file_field :image, class: 'form-control input-lg' %>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Social</legend>
+            <div class="form-group">
+              <div class="col-lg-12">
+                <%= f.text_field :tags, class: 'form-control input-lg', placeholder: 'Tags' %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-lg-12">
+                <%= f.text_field :youtube_url, class: 'form-control input-lg', placeholder: 'YouTube Video Link' %>
+              </div>
+            </div>
+
+          </fieldset>
+
+          <fieldset>
+            <div class="form-group">
+              <div class="col-lg-12">
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Upload Mod</button>
+              </div>
+            </div>
+          </fieldset>
+        <% end %>
+    </div>
+</div>
