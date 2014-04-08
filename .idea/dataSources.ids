@@ -3,4 +3,7 @@
   <data-source source="LOCAL" name="Rails kerbalsite: development" uuid="76b11bdf-3940-4e91-b255-e6100c6ca8ec">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
+  <data-source source="LOCAL" name="Rails kerbalsite: production" uuid="817ea2be-6836-4946-b501-8885254e870c">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>

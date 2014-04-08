@@ -38,10 +38,34 @@ class ModsController < ApplicationController
 	end
 
 	def download
-	end
+  end
+
+  def like
+    mod = Mod.find(params[:id])
+    rate(:like, mod)
+
+    render nothing: true
+  end
+
+  def dislike
+    mod = Mod.find(params[:id])
+    rate(:dislike, mod)
+
+    render nothing: true
+  end
 
 	private
 	def mod_params
-		params.require(:mod).permit(:name, :description, :description_short, :version, :tags, :download_count, :image)
-	end
+		params.require(:mod).permit(:name, :description, :description_short, :version, :tags, :download_count, :image, :likes, :dislikes)
+  end
+
+  def rate(type, mod)
+    if type == :like
+      mod.likes = mod.likes + 1
+    elsif type == :dislike
+      mod.dislikes = mod.dislikes + 1
+    end
+
+    mod.save
+  end
 end

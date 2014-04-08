@@ -6,7 +6,10 @@ Kerbalsite::Application.routes.draw do
   resources :mods do
     member do
       get :download
-      get :subscribe
+      put :subscribe
+
+      get :like
+      get :dislike
     end
   end
 
