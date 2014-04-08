@@ -14,7 +14,8 @@
     <div class="row">
       <% if @mods.empty? %>
           <div align="center">
-              <h3>No mods uploaded.</h3>
+              <% tag_message = (@tag.nil?) ? '' : ' with the tag \'' + @tag + '\'' %>
+              <h3>No mods found<%= tag_message %>.</h3>
               <h3 style="padding-top: 30px;"><%= link_to 'Upload a Mod', new_mod_path, class: 'btn btn-default btn-lg' %></h3>
           </div>
       <% end %>

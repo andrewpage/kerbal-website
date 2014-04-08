@@ -2,7 +2,14 @@ class ModsController < ApplicationController
 	before_action :authenticate_account!, except: [:index, :show]
 
 	def index
-		@mods = Mod.paginate(:page => params[:page], :per_page => 15)
+    if params.has_key?(:tag)
+      mods = Mod.tagged_with(params[:tag])
+      @tag = params[:tag]
+    else
+      mods = Mod.all
+    end
+
+    @mods = mods.paginate(:page => params[:page], :per_page => 15)
 	end
 
 	def show
