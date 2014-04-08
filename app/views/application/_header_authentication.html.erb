@@ -1,8 +1,8 @@
 <% if !account_signed_in? %>
-	<li class="<%= cp('new_account_registration_path') %>"><%= link_to 'Sign Up', new_account_registration_path %></li>
-	<li class="<%= cp('new_account_session_path') %>"><%= link_to 'Sign In', new_account_session_path %></li>
+    <li class="<%= cp(new_account_session_path) %>"><%= link_to 'Sign In', new_account_session_path %></li>
+	<li class="<%= cp(new_account_registration_path) %>"><%= link_to 'Sign Up', new_account_registration_path %></li>
 <% else %>
-    <li><%= link_to 'Upload', new_mod_path %></li>
-    <li><%= link_to 'Profile', current_account %></li>
+    <li class="<%= cp(new_mod_path) %>"><%= link_to 'Upload', new_mod_path %></li>
+    <li class="<%= cp(current_account) %>"><%= link_to 'Profile', current_account %></li>
 	<li><%= link_to 'Sign Out', destroy_account_session_path, method: :delete %></li>
 <% end %>
