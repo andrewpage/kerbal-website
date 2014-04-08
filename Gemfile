@@ -14,6 +14,9 @@ gem 'bootswatch-rails'
 
 gem 'country_select'
 
+gem 'searchkick'
+gem 'utf8_enforcer_workaround'
+
 gem 'paperclip'
 gem 'aws-sdk'
 

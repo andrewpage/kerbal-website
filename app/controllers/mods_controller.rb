@@ -4,12 +4,14 @@ class ModsController < ApplicationController
 	def index
     if params.has_key?(:tag)
       mods = Mod.tagged_with(params[:tag])
-      @tag = params[:tag]
-    else
-      mods = Mod.all
-    end
 
-    @mods = mods.paginate(:page => params[:page], :per_page => 15)
+      @tag = params[:tag]
+      @mods = mods.paginate(:page => params[:page], :per_page => 15)
+    elsif params.has_key?(:search)
+      @mods = Mod.search params[:search], fields: [:name], page: params[:page], per_page: 15
+    else
+      @mods = Mod.paginate(:page => params[:page], :per_page => 15)
+    end
 	end
 
 	def show

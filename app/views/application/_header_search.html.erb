@@ -1,5 +1,5 @@
 <li>
-	<form class="navbar-form navbar-right" style="margin-right: 2px;">
-		<input type="text" class="form-control col-lg-8" placeholder="Search">
-	</form>
+	<%= form_tag mods_path, method: 'get', class: 'navbar-form navbar-right', style: 'margin-right: 2px;' do %>
+		<%= text_field_tag :search, params[:search], class: 'form-control col-lg-8', placeholder: 'Search' %>
+	<% end %>
 </li>
