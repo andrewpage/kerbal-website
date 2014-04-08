@@ -28,8 +28,13 @@
         </p>
 
         <%
-            like_class = (current_account.voted_up_on? @mod) ? 'success' : 'primary'
-            dislike_class = (current_account.voted_down_on? @mod) ? 'danger' : 'primary'
+            if account_signed_in?
+              like_class = (current_account.voted_up_on? @mod) ? 'success' : 'primary'
+              dislike_class = (current_account.voted_down_on? @mod) ? 'danger' : 'primary'
+            else
+              like_class = 'primary'
+              dislike_class = 'primary'
+            end
         %>
         <p>
           <span class="label label-default"></span>
