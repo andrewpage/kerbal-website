@@ -1,4 +1,4 @@
-kerbal-website
+Kerbal Space Program Mod Manager - Website
 ==============
 
-The website component to the new Kerbal Space Program mod manager.
+This is the website component to the Kerbal Space Station mod manager.

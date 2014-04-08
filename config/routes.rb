@@ -19,5 +19,8 @@ Kerbalsite::Application.routes.draw do
     end
   end
 
+  namespace :api, path: '/', constraints: { subdomain: 'api' } do
+  end
+
   root to: 'pages#home'
 end
