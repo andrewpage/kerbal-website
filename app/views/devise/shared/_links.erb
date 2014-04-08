@@ -1,6 +1,6 @@
 <% link_class = 'btn btn-default' %>
 
-<%- if controller_name != 'sessions' %>
+<%- if controller_name != 'sessions' && controller_name != 'registrations' %>
   <%= link_to "Sign in", new_session_path(resource_name), class: link_class %>
 <% end -%>
 
