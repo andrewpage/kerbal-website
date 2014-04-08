@@ -19,6 +19,8 @@ gem 'aws-sdk'
 
 gem 'rails_config'
 
+gem 'acts_as_votable'
+
 gem 'devise'
 
 gem 'turbolinks'

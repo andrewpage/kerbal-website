@@ -22,14 +22,12 @@
       </div>
       <div class="ratings">
         <p class="pull-right"><%= @mod.download_count %> downloads</p>
-        <p>
-          <span class="glyphicon glyphicon-star"></span>
-          <span class="glyphicon glyphicon-star"></span>
-          <span class="glyphicon glyphicon-star"></span>
-          <span class="glyphicon glyphicon-star"></span>
-          <span class="glyphicon glyphicon-star-empty"></span>
-          4.0 stars
-        </p>
+
+        <%
+            like_label = (current_account.voted_up_on? @mod) ? 'Unlike' : 'Like'
+            dislike_label = (current_account.voted_down_on? @mod) ? 'Undislike' : 'Dislike'
+        %>
+        <p><span class="label label-default"><%= @mod.vote_tally %> likes</span> <%= link_to like_label, like_mod_path, class: 'btn btn-primary btn-sm' %> <%= link_to dislike_label, dislike_mod_path, class: 'btn btn-primary btn-sm' %></p>
       </div>
     </div>
 

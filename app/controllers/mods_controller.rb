@@ -42,30 +42,30 @@ class ModsController < ApplicationController
 
   def like
     mod = Mod.find(params[:id])
-    rate(:like, mod)
 
-    render nothing: true
+    if current_account.voted_up_on? mod
+      mod.unliked_by current_account
+    else
+      mod.liked_by current_account
+    end
+
+    redirect_to mod
   end
 
   def dislike
     mod = Mod.find(params[:id])
-    rate(:dislike, mod)
 
-    render nothing: true
+    if current_account.voted_down_on? mod
+      mod.undisliked_by current_account
+    else
+      mod.disliked_by current_account
+    end
+
+    redirect_to mod
   end
 
 	private
 	def mod_params
-		params.require(:mod).permit(:name, :description, :description_short, :version, :tags, :download_count, :image, :likes, :dislikes)
-  end
-
-  def rate(type, mod)
-    if type == :like
-      mod.likes = mod.likes + 1
-    elsif type == :dislike
-      mod.dislikes = mod.dislikes + 1
-    end
-
-    mod.save
+		params.require(:mod).permit(:name, :description, :description_short, :version, :tags, :download_count, :image)
   end
 end

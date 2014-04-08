@@ -5,6 +5,8 @@ class Account < ActiveRecord::Base
 
   has_many :mods
 
+  acts_as_voter
+
   validates :username, presence: true,
   					   length: { in: 5..25 },
   					   uniqueness: true

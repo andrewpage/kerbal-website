@@ -4,6 +4,8 @@ class Mod < ActiveRecord::Base
 	#belongs_to :category
 	#has_and_belongs_to_many :tags
 
+  acts_as_votable # Likes / Dislikes
+
   has_attached_file :image
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 
@@ -13,4 +15,8 @@ class Mod < ActiveRecord::Base
 	validates :version, presence: true
 	validates :tags, presence: true
 	validates :download_count, presence: true
+
+  def vote_tally
+    self.likes.size - self.dislikes.size
+  end
 end
