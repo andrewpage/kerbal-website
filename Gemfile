@@ -10,7 +10,7 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass' # Bootstrap
 gem 'bootswatch-rails'
 
-gem 'font-awesome-sass'
+gem 'font-awesome-rails'
 
 gem 'country_select'
 

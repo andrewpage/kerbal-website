@@ -10,10 +10,11 @@
  *
  *= require_self
  *= require_tree .
- *= require bootswatch-united
- *= require jquery.tagsinput
- *= require font-awesome
  */
+
+@import "jquery.tagsinput";
+@import "bootswatch-united";
+@import "font-awesome";
 
 div#main-container {
 	padding-top: 65px;
