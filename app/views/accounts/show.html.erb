@@ -14,8 +14,8 @@
         <li class="list-group-item text-muted">Profile</li>
         <li class="list-group-item text-right"><span class="pull-left"><strong>Name</strong></span> <%= @user.full_name %></li>
         <li class="list-group-item text-right"><span class="pull-left"><strong>Country</strong></span> <%= @user.country %></li>
-        <li class="list-group-item text-right"><span class="pull-left"><strong>Last seen</strong></span> <%= @user.last_sign_in_at %></li>
-        <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span> <%= @user.created_at %></li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Last seen</strong></span> <%= nice_date @user.last_sign_in_at %></li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span> <%= nice_date @user.created_at %></li>
 
       </ul>
 

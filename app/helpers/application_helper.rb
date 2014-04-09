@@ -15,5 +15,9 @@ module ApplicationHelper
 		else
 			type
 		end
-	end
+  end
+
+  def nice_date(date)
+    date.strftime('%B') + ' ' + date.strftime('%e').to_i.ordinalize + ' ' + date.strftime('%Y')
+  end
 end
