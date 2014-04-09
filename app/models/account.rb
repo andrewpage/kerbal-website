@@ -26,4 +26,9 @@ class Account < ActiveRecord::Base
   def mailboxer_email(object)
     (Rails.env == 'development') ? nil : email
   end
+
+  def gravatar_url
+    gravatar_id = Digest::MD5.hexdigest(self.email.downcase)
+    "http://www.gravatar.com/avatar/#{gravatar_id}?s=100"
+  end
 end
