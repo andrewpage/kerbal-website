@@ -50,7 +50,7 @@
         </div>
 
         <div class="tab-pane" id="mods">
-          <h1>Welcome Mods</h1>
+            <%= render partial: 'mods', locals: { account: @user } %>
         </div>
 
         <div class="tab-pane" id="messages">

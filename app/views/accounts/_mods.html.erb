@@ -1,0 +1,21 @@
+<h2></h2>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+        <tr>
+          <th>Name</th>
+          <th>Downloads</th>
+          <th>Likes</th>
+        </tr>
+    </thead>
+    <tbody id="items">
+        <% account.mods.each do |mod| %>
+            <tr>
+              <td><%= link_to mod.name, mod %></td>
+              <td><%= mod.download_count %></td>
+              <td><%= mod.vote_tally %></td>
+            </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>

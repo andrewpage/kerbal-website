@@ -48,9 +48,10 @@ class ModsController < ApplicationController
 
 	def download
     @mod = Mod.find(params[:id])
-    @mod.update_attributes(download_count: @mod.download_count + 1)
 
     redirect_to @mod.mod_file.url
+
+    @mod.increment(:download_count).save
   end
 
   def like
