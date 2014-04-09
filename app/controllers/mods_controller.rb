@@ -60,13 +60,21 @@ class ModsController < ApplicationController
 	def subscribe
     @mod = Mod.find(params[:id])
 
-    @mod.subscribed_accounts << current_account
-    current_account.subscribed_mods << @mod
+    if !current_account.subscribed_mods.include? @mod
+      @mod.subscribed_accounts << current_account
+      flash_message = "You have subscribed to #{@mod.name}."
+    else
+      @mod.subscribed_accounts.delete current_account
+      current_account.subscribed_mods.delete @mod
+
+      current_account.save
+
+      flash_message = "You have unsubscribed from #{@mod.name}."
+    end
 
     @mod.save
-    current_account.save
 
-    redirect_to @mod, flash: { success: 'You have subscribed to ' + @mod.name + '.' }
+    redirect_to @mod, flash: { success: flash_message }
 	end
 
 	def download

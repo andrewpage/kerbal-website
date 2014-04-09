@@ -2,8 +2,16 @@
 
   <div class="col-md-3">
     <div class="btn-group btn-group-justified">
-      <%= link_to 'Download', download_mod_path, class: 'btn btn-primary btn-lg' %>
-      <%= link_to 'Subscribe', subscribe_mod_path, class: 'btn btn-success btn-lg' %>
+
+      <%
+         subscribed = (!current_account.subscribed_mods.include? @mod)
+
+         subscribe_text = (subscribed) ? 'Subscribe' : 'Unsubscribe'
+         subscribe_class = (subscribed) ? 'success' : 'danger'
+      %>
+
+      <%= link_to 'Download', download_mod_path, class: 'btn btn-lg btn-primary' %>
+      <%= link_to subscribe_text, subscribe_mod_path, class: 'btn btn-lg btn-' + subscribe_class %>
     </div>
 
     <br />
