@@ -1,3 +1,41 @@
-// Place all the styles related to the Accounts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.pic
+{
+  margin-top:50px;
+  width:120px;
+  margin-left:50px;
+  margin-bottom:-60px;
+}
+
+.panel
+{
+
+}
+
+.name
+{
+  position:absolute;
+  padding-left:200px;
+  font-size:30px;
+}
+
+.dropdown
+{
+  position:absolute;
+}
+
+.change
+{
+  position:relative;
+  bottom:20px;
+  padding:1px;
+  color:white;
+  text-decoration:none;
+}
+
+
+.change:hover
+{
+  text-decoration:none;
+  background-color:black;
+  color:white;
+}

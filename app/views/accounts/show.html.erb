@@ -1,10 +1,63 @@
-<h1><%= @user.first_name + ' ' + @user.last_name %></h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10"><h1><%= @user.username %></h1></div>
+    <div class="col-sm-2">
+    <span class="pull-right">
+      <img title="profile image" class="img-circle img-responsive" src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100">
+    </span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
 
-<p>In this view, we're going to show all the mods that this user has uploaded. We're also going to allow messaging and such.</p>
+      <ul class="list-group">
+        <li class="list-group-item text-muted">Profile</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Name</strong></span> <%= @user.first_name + ' ' + @user.last_name %></li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Country</strong></span> <%= @user.country %></li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Last seen</strong></span> <%= @user.last_sign_in_at %></li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span> <%= @user.created_at %></li>
 
-<ul>
-	<li>Username: <%= @user.username %></li>
-	<li>First Name: <%= @user.first_name %></li>
-	<li>Last Name: <%= @user.last_name %></li>
-	<li>Country: <%= @user.country %></li>
-</ul>
+      </ul>
+
+      <ul class="list-group">
+        <li class="list-group-item text-muted">Activity</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Mods</strong></span> <%= @user.mods.count %></li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> <%= @user.find_liked_items.count %></li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Dislikes</strong></span> <%= @user.find_disliked_items.count %></li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Subscribed</strong></span> 0</li>
+      </ul>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">Social Media</div>
+        <div class="panel-body">
+          <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i>
+          <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-9">
+
+      <ul class="nav nav-tabs" id="myTab">
+        <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+        <li><a href="#mods" data-toggle="tab">Mods</a></li>
+        <li><a href="#messages" data-toggle="tab">Messages</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div class="tab-pane active" id="home">
+            <h1>Welcome Home</h1>
+        </div>
+
+        <div class="tab-pane" id="mods">
+          <h1>Welcome Mods</h1>
+        </div>
+
+        <div class="tab-pane" id="messages">
+            <%= render partial: 'messages' %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
