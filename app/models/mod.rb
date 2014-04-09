@@ -1,5 +1,6 @@
 class Mod < ActiveRecord::Base
 	belongs_to :account
+  has_and_belongs_to_many :subscribed_accounts, class_name: 'Account'
 
 	#belongs_to :category
 	#has_and_belongs_to_many :tags

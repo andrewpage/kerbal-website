@@ -5,6 +5,8 @@ class Account < ActiveRecord::Base
 
   has_many :mods
 
+  has_and_belongs_to_many :subscribed_mods, class_name: 'Mod'
+
   acts_as_voter
   acts_as_messageable
 

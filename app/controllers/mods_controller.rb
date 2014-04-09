@@ -60,6 +60,12 @@ class ModsController < ApplicationController
 	def subscribe
     @mod = Mod.find(params[:id])
 
+    @mod.subscribed_accounts << current_account
+    current_account.subscribed_mods << @mod
+
+    @mod.save
+    current_account.save
+
     redirect_to @mod, flash: { success: 'You have subscribed to ' + @mod.name + '.' }
 	end
 

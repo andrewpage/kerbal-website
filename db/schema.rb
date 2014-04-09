@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140409014910) do
+ActiveRecord::Schema.define(version: 20140409025446) do
 
   create_table "accounts", force: true do |t|
     t.string   "username"
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(version: 20140409014910) do
 
   add_index "accounts", ["email"], name: "index_accounts_on_email", unique: true
   add_index "accounts", ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
+
+  create_table "accounts_mods", id: false, force: true do |t|
+    t.integer "mod_id"
+    t.integer "account_id"
+  end
+
+  add_index "accounts_mods", ["account_id"], name: "index_accounts_mods_on_account_id"
+  add_index "accounts_mods", ["mod_id", "account_id"], name: "index_accounts_mods_on_mod_id_and_account_id"
 
   create_table "conversations", force: true do |t|
     t.string   "subject",    default: ""
