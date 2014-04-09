@@ -1,4 +1,6 @@
 <h2></h2>
+
+<% if !account.mods.empty? %>
 <div class="table-responsive">
   <table class="table table-hover">
     <thead>
@@ -25,3 +27,6 @@
     </tbody>
   </table>
 </div>
+<% else %>
+<h2><i>You do not have any mods.</i></h2>
+<% end %>

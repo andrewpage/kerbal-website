@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="52afd696-4176-4119-b37d-bda15eb8dbb8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/accounts/_mods.html.erb" afterPath="$PROJECT_DIR$/app/views/accounts/_mods.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/mods_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/mods_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/mods/show.html.erb" afterPath="$PROJECT_DIR$/app/views/mods/show.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kerbalsite.iws" />
@@ -63,21 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.html.erb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/mods/show.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.58064514" vertical-offset="0" max-vertical-offset="1476">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_mods.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="_mods.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/accounts/_mods.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.666667" vertical-offset="0" max-vertical-offset="576">
-              <caret line="19" column="94" selection-start-line="19" selection-start-column="79" selection-end-line="19" selection-end-column="94" />
+            <state vertical-scroll-proportion="0.66774195" vertical-offset="0" max-vertical-offset="666">
+              <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -134,9 +122,9 @@
         <option value="$PROJECT_DIR$/app/models/account.rb" />
         <option value="$PROJECT_DIR$/app/views/accounts/show.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-        <option value="$PROJECT_DIR$/app/views/accounts/_mods.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/mods_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/mods/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/accounts/_mods.html.erb" />
       </list>
     </option>
   </component>
@@ -1088,26 +1076,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/accounts/_mods.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.666667" vertical-offset="0" max-vertical-offset="576">
-          <caret line="19" column="94" selection-start-line="19" selection-start-column="79" selection-end-line="19" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/mods_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1243" max-vertical-offset="1890">
           <caret line="96" column="7" selection-start-line="96" selection-start-column="7" selection-end-line="96" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/accounts/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-34.666668" vertical-offset="0" max-vertical-offset="1242">
-          <caret line="52" column="12" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -1124,8 +1096,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/mods/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58064514" vertical-offset="0" max-vertical-offset="1476">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.27419356" vertical-offset="856" max-vertical-offset="1476">
+          <caret line="57" column="12" selection-start-line="57" selection-start-column="12" selection-end-line="57" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/accounts/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-34.666668" vertical-offset="0" max-vertical-offset="1242">
+          <caret line="52" column="12" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/accounts/_mods.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.66774195" vertical-offset="0" max-vertical-offset="666">
+          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
           <folding />
         </state>
       </provider>
