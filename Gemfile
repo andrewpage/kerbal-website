@@ -7,10 +7,10 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 
 gem 'sass-rails', '~> 4.0.0'
-gem 'font-awesome-rails'
-
 gem 'bootstrap-sass' # Bootstrap
 gem 'bootswatch-rails'
+
+gem 'font-awesome-sass'
 
 gem 'country_select'
 
