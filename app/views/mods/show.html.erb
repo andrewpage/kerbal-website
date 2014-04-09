@@ -56,8 +56,8 @@
         %>
         <p>
           <span class="label label-default"></span>
-          <%= link_to fa_icon('thumbs-up'), like_mod_path, class: 'btn btn-sm btn-' + like_class %>
-          <%= link_to fa_icon('thumbs-down'), dislike_mod_path, class: 'btn btn-sm btn-' + dislike_class %>
+          <%= link_to icon('thumbs-up'), like_mod_path, class: 'btn btn-sm btn-' + like_class %>
+          <%= link_to icon('thumbs-down'), dislike_mod_path, class: 'btn btn-sm btn-' + dislike_class %>
         </p>
         <p>
           <% @mod.tags.each do |tag| %>
