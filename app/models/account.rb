@@ -6,6 +6,7 @@ class Account < ActiveRecord::Base
   has_many :mods
 
   acts_as_voter
+  acts_as_messageable
 
   validates :username, presence: true,
   					   length: { in: 5..25 },
@@ -17,4 +18,12 @@ class Account < ActiveRecord::Base
   					     length: { in: 1..50 }
 
   validates :country, presence: true
+
+  def full_name
+    self.first_name + ' ' + self.last_name
+  end
+
+  def mailboxer_email(object)
+    (Rails.env == 'development') ? nil : email
+  end
 end
