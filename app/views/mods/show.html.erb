@@ -9,6 +9,16 @@
     <br />
 
     <div align="center"><i><%= link_to 'Whats the difference?', faq_pages_path %></i></div>
+
+    <% if current_account == @mod.account %>
+        <br /> <hr />
+        <div class="btn-group btn-group-justified">
+          <%= link_to 'Edit', edit_mod_path, class: 'btn btn-warning btn-lg' %>
+          <%= link_to 'Destroy', @mod, class: 'btn btn-danger btn-lg', method: :delete %>
+        </div>
+    <% end %>
+
+
   </div>
 
   <div class="col-md-9">

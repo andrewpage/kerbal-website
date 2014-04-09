@@ -14,6 +14,12 @@
               <td><%= link_to mod.name, mod %></td>
               <td><%= mod.download_count %></td>
               <td><%= mod.vote_tally %></td>
+              <% if account == mod.account %>
+                  <td>
+                    <%= link_to 'Edit', edit_mod_path, class: 'btn btn-sm btn-warning' %>
+                    <%= link_to 'Delete', mod, class: 'btn btn-sm btn-danger', method: :delete %>
+                  </td>
+              <% end %>
             </tr>
         <% end %>
     </tbody>

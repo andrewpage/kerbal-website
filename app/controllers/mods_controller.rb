@@ -1,4 +1,5 @@
 class ModsController < ApplicationController
+  before_filter :require_permission, only: [:edit, :update, :destroy]
 	before_action :authenticate_account!, except: [:index, :show]
 
 	def index
@@ -27,8 +28,7 @@ class ModsController < ApplicationController
     @mod.account = current_account
 
 		if @mod.save
-			flash[:success] = 'Mod has been successfully created.'
-			redirect_to @mod
+			redirect_to @mod, flash: { success: 'Mod was successfully created.' }
 		else
 			render 'new'
 		end
@@ -38,12 +38,20 @@ class ModsController < ApplicationController
 	end
 
 	def update
-	end
+  end
+
+  def destroy
+    @mod = Mod.find(params[:id])
+
+    @mod.destroy
+
+    redirect_to mods_path, flash: { success: 'Mod was successfully deleted. '}
+  end
 
 	def subscribe
     @mod = Mod.find(params[:id])
-    flash[:success] = 'You have subscribed to ' + @mod.name + '.'
-    redirect_to @mod
+
+    redirect_to @mod, flash: { success: 'You have subscribed to ' + @mod.name + '.' }
 	end
 
 	def download
@@ -81,5 +89,11 @@ class ModsController < ApplicationController
 	private
 	def mod_params
 		params.require(:mod).permit(:name, :description, :description_short, :version, :tag_list, :download_count, :image, :youtube_url, :mod_file)
+  end
+
+  def require_permission
+    if current_account != Mod.find(params[:id]).account
+      redirect_to current_account, flash: { danger: 'You do not own that mod!' }
+    end
   end
 end
