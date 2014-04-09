@@ -35,9 +35,18 @@ class ModsController < ApplicationController
 	end
 
 	def edit
+    @mod = Mod.find(params[:id])
 	end
 
 	def update
+    @mod = Mod.find(params[:id])
+
+    if @mod.update_attributes(mod_params)
+      redirect_to @mod, flash: { success: 'Mod successfully updated.' }
+    else
+      flash[:danger] = 'Error updating mod!'
+      render 'edit'
+    end
   end
 
   def destroy
