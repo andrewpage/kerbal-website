@@ -24,6 +24,7 @@ class ModsController < ApplicationController
 
 	def create
 		@mod = Mod.new(mod_params)
+    @mod.account = current_account
 
 		if @mod.save
 			flash[:success] = 'Mod has been successfully created.'
