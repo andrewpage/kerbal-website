@@ -50,4 +50,6 @@ group :production do
 
 	#gem 'unicorn-rails'
 	gem 'passenger'
+
+  gem 'newrelic_rpm'
 end
