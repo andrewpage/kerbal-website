@@ -20,25 +20,7 @@
           </div>
       <% end %>
       <% @mods.each do |mod| %>
-          <div class="col-sm-4 col-lg-4 col-md-4">
-            <div class="thumbnail">
-              <%= image_tag mod.thumbnail.url(:thumb) %>
-
-              <div class="caption">
-                <h4 class="game-version pull-right"><%= mod.version %></h4>
-                <h4><%= link_to mod.name, mod %></a>
-                </h4>
-                <p><%= mod.description_short %></p>
-              </div>
-
-              <div class="ratings">
-                <p class="pull-right"><%= mod.download_count %> downloads</p>
-                <p>
-                  <%= mod.vote_tally %> likes
-                </p>
-              </div>
-            </div>
-          </div>
+        <%= render partial: 'box', locals: { mod: mod, homepage: false } %>
       <% end %>
     </div>
     <div align="center">

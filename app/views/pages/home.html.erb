@@ -38,25 +38,6 @@
 <div class="row">
 
   <% top_mods.each do |mod| %>
-
-  <div class="col-lg-3 col-md-6">
-    <div class="thumbnail">
-      <%= image_tag mod.thumbnail.url(:thumb) %>
-
-      <div class="caption">
-        <h4 class="game-version pull-right"><%= mod.version %></h4>
-        <h4><%= link_to mod.name, mod %></a></h4>
-        <p><%= mod.description_short %></p>
-      </div>
-
-      <div class="ratings">
-        <p class="pull-right"><%= mod.download_count %> downloads</p>
-        <p>
-          <%= mod.vote_tally %> likes
-        </p>
-      </div>
-    </div>
-  </div>
-
+      <%= render partial: 'mods/box', locals: { mod: mod, homepage: true } %>
   <% end %>
 </div>
