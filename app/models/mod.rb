@@ -5,6 +5,8 @@ class Mod < ActiveRecord::Base
 	belongs_to :account
   has_and_belongs_to_many :subscribed_accounts, class_name: 'Account'
 
+  enum mod_type: [ :plugin, :part, :craft ]
+
   # Paperclip
   has_attached_file :thumbnail, styles: { thumb: '320x150#' }
   has_attached_file :banner, styles: { medium: '800x300#' }
@@ -23,8 +25,7 @@ class Mod < ActiveRecord::Base
 
   acts_as_taggable
 
-  searchkick
-
+  searchkick # Search Engine
 
   # Thumbnail
   validates_attachment_presence :thumbnail

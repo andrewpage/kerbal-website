@@ -3,7 +3,7 @@ Kerbalsite::Application.routes.draw do
 
   resources :accounts
 
-  resources :mods do
+  resources :mods, except: [:index] do
     member do
       get :download
       get :subscribe
@@ -11,6 +11,10 @@ Kerbalsite::Application.routes.draw do
       get :dislike
     end
   end
+
+  get 'mods', to: 'mods#index', mod_type: 'plugin'
+  get 'crafts', to: 'mods#index', mod_type: 'craft'
+  get 'parts', to: 'mods#index', mod_type: 'part'
 
   resources :pages, path: '/', only: [] do
     collection do

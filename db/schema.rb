@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410014836) do
+ActiveRecord::Schema.define(version: 20140410022202) do
 
   create_table "accounts", force: true do |t|
     t.string   "username"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20140410014836) do
     t.string   "mod_content_type"
     t.integer  "mod_file_size"
     t.datetime "mod_updated_at"
+    t.integer  "mod_type",               default: 0
   end
 
   create_table "taggings", force: true do |t|

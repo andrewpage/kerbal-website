@@ -70,6 +70,7 @@
         <% end %>
 
         <p>
+          <span class="label label-info"><%= link_to @mod.mod_type.humanize, crafts_path, class: 'tag-link' %></span>
           <% @mod.tags.each do |tag| %>
               <span class="label label-default"><%= link_to tag, mods_path(tag: tag.to_s), class: 'tag-link' %></span>
           <% end %>
