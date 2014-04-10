@@ -1,6 +1,6 @@
 class Mod < ActiveRecord::Base
-  CONTENT_ALLOWED_IMAGE = Settings.file_upload.allowed.image.to_s
-  CONTENT_ALLOWED_ARCHIVE = Settings.file_upload.allowed.archive.to_s
+  CONTENT_ALLOWED_IMAGE = Settings.file_upload.allowed.image
+  CONTENT_ALLOWED_ARCHIVE = Settings.file_upload.allowed.archive
 
   belongs_to :account
   has_and_belongs_to_many :subscribed_accounts, class_name: 'Account'
@@ -26,15 +26,15 @@ class Mod < ActiveRecord::Base
 
   ## Thumbnail
   validates_attachment_presence :thumbnail
-  validates_attachment_content_type :thumbnail, :message => 'is an invalid image format. Accepted formats: ' + CONTENT_ALLOWED_IMAGE, :content_type => CONTENT_ALLOWED_IMAGE
+  validates_attachment_content_type :thumbnail, :message => 'is an invalid image format. Accepted formats: ' + CONTENT_ALLOWED_IMAGE.to_s, :content_type => CONTENT_ALLOWED_IMAGE
 
   ## Banner
   validates_attachment_presence :banner
-  validates_attachment_content_type :banner, :message => 'is an invalid image format. Accepted formats: ' + CONTENT_ALLOWED_IMAGE, :content_type => CONTENT_ALLOWED_IMAGE
+  validates_attachment_content_type :banner, :message => 'is an invalid image format. Accepted formats: ' + CONTENT_ALLOWED_IMAGE.to_s, :content_type => CONTENT_ALLOWED_IMAGE
 
   ## Mod File
   validates_attachment_presence :mod
-  validates_attachment_content_type :mod, :message => 'is an invalid archive format. Accepted formats: ' + CONTENT_ALLOWED_IMAGE, :content_type => CONTENT_ALLOWED_IMAGE
+  validates_attachment_content_type :mod, :message => 'is an invalid archive format. Accepted formats: ' + CONTENT_ALLOWED_ARCHIVE.to_s, :content_type => CONTENT_ALLOWED_ARCHIVE
   validates_attachment_size :mod, :less_than => 200.megabytes
 
   # Validations
