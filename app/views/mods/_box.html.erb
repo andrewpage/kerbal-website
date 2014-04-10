@@ -10,9 +10,9 @@
     <%= image_tag mod.thumbnail.url(:thumb) %>
 
     <div class="caption">
-      <h4 class="game-version pull-right"><%= mod.version %></h4>
-      <h4><%= link_to mod.name, mod %></a>
-      </h4>
+      <h4 width="75%" style="text-overflow: ellipsis;"><%= link_to mod.name, mod %></h4>
+
+      <span class="game-version label label-info pull-right"><%= mod.version %></span>
       <p><%= mod.description_short %></p>
     </div>
 

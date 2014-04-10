@@ -5,7 +5,7 @@
     <div class="btn-group btn-group-justified">
 
 
-      <%= link_to 'Download', download_mod_path, class: 'btn btn-lg btn-info' %>
+      <%= link_to 'Download', download_mod_path, class: 'btn btn-lg btn-primary' %>
       <% if account_signed_in? %>
           <%
              subscribed = (!current_account.subscribed_mods.include? @mod)
@@ -39,10 +39,14 @@
     <div class="thumbnail">
       <%= image_tag @mod.banner.url(:medium) %>
       <div class="caption-full">
-        <h4 class="pull-right">Version <%= @mod.version %></h4>
-        <h4><a href="#"><%= @mod.name %></a></h4>
+        <div class="pull-right">
+          <%= link_to 'YouTube', @mod.youtube_url, class: 'label label-primary', style: 'font-size: 15px;' %>
+          <span class="game-version label label-info" style="font-size: 15px"><%= @mod.version %></span>
+        </div>
+        <h4><%= @mod.name %></h4>
+        <hr />
         <%= @mod.description %>
-        <%= link_to 'YouTube Documentation', @mod.youtube_url %>
+
       </div>
       <div class="ratings">
         <p class="pull-right">
@@ -75,6 +79,8 @@
               <span class="label label-default"><%= link_to tag, mods_path(tag: tag.to_s), class: 'tag-link' %></span>
           <% end %>
         </p>
+
+
       </div>
     </div>
 
