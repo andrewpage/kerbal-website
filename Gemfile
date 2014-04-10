@@ -50,4 +50,5 @@ group :production do
 	gem 'passenger'
 
   gem 'newrelic_rpm'
+  gem 'rails_12factor'
 end
