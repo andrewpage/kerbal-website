@@ -1,3 +1,9 @@
 general:
   site_title: 'Kerbal Mods'
   site_title_short: 'KSP'
+
+
+file_upload:
+  allowed:
+    image: ['image/jpg', 'image/jpeg', 'image/png']
+    archive: ['application/x-tar', 'application/x-gzip', 'application/zip']

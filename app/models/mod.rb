@@ -1,7 +1,4 @@
 class Mod < ActiveRecord::Base
-  VALID_ARCHIVE_TYPES = ['application/x-tar', 'application/x-gzip', 'application/zip']
-  VALID_IMAGE_TYPES = ['image/jpg', 'image/jpeg', 'image/png']
-
 	belongs_to :account
   has_and_belongs_to_many :subscribed_accounts, class_name: 'Account'
 
@@ -29,15 +26,15 @@ class Mod < ActiveRecord::Base
 
   # Thumbnail
   validates_attachment_presence :thumbnail
-  validates_attachment_content_type :thumbnail, :message => 'is an invalid image format. Accepted formats: .jpg, .jpeg, .png', :content_type => VALID_IMAGE_TYPES
+  validates_attachment_content_type :thumbnail, :message => 'is an invalid image format. Accepted formats: ' + Settings.file_upload.allowed.image.to_s, :content_type => Settings.file_upload.allowed.image
 
   # Banner
   validates_attachment_presence :banner
-  validates_attachment_content_type :banner, :message => 'is an invalid image format. Accepted formats: .jpg, .jpeg, .png', :content_type => VALID_IMAGE_TYPES
+  validates_attachment_content_type :banner, :message => 'is an invalid image format. Accepted formats: ' + Settings.file_upload.allowed.image.to_s, :content_type => Settings.file_upload.allowed.image
 
   # Mod File
   validates_attachment_presence :mod
-  validates_attachment_content_type :mod, :message => 'is an invalid archive format. Accepted formats: .tar, .tar.gz, .tgz', :content_type => VALID_ARCHIVE_TYPES
+  validates_attachment_content_type :mod, :message => 'is an invalid archive format. Accepted formats: ' + Settings.file_upload.allowed.archive.to_s, :content_type => Settings.file_upload.allowed.archive
   validates_attachment_size :mod, :less_than => 200.megabytes
 
   # Validations

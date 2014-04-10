@@ -30,6 +30,7 @@ gem 'rails_config'
 gem 'acts_as_votable'
 
 gem 'devise'
+gem 'cancan'
 
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
@@ -51,4 +52,6 @@ group :production do
 
   gem 'newrelic_rpm'
   gem 'rails_12factor'
+
+  gem 'rateaux'
 end
