@@ -35,6 +35,14 @@
         </div>
       </div>
 
+      <% if current_account == @user %>
+          <hr />
+
+          <div align="center">
+            <%= link_to 'Update Profile', edit_account_registration_path, class: 'btn btn-primary' %>
+          </div>
+      <% end %>
+
     </div>
     <div class="col-sm-9">
 
@@ -56,7 +64,6 @@
         <div class="tab-pane" id="subscribed">
             <%= render partial: 'subscribed', locals: { account: @user } %>
         </div>
-
       </div>
     </div>
   </div>

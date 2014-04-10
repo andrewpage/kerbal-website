@@ -1,29 +1,93 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="devise-form">
+  <h1>Update Profile</h1>
+  <div class="well">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-horizontal', method: :put }) do |f| %>
+        <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+        <fieldset>
+          <legend>Account Details</legend>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Username</label>
+            <div class="col-lg-10">
+              <%= f.text_field :username, autofocus: true, class: 'form-control', placeholder: 'Username' %>
+            </div>
+          </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Email</label>
+            <div class="col-lg-10">
+              <%= f.email_field :email, class: 'form-control', placeholder: 'Email' %>
+            </div>
+          </div>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Password</label>
+            <div class="col-lg-10">
+              <%= f.password_field :password, autocomplete: 'off', class: 'form-control', placeholder: 'Password' %>
+            </div>
+          </div>
 
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Confirm</label>
+            <div class="col-lg-10">
+              <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control', placeholder: 'Password confirmation' %>
+            </div>
+          </div>
+        </fieldset>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %></div>
+        <fieldset class="devise-fieldset">
+          <legend>Personal Details</legend>
 
-  <div><%= f.submit "Update" %></div>
-<% end %>
+          <div class="form-group">
+            <label class="col-lg-2 control-label">First Name</label>
+            <div class="col-lg-10">
+              <%= f.text_field :first_name, autofocus: true, class: 'form-control', placeholder: 'First Name' %>
+            </div>
+          </div>
 
-<h3>Cancel my account</h3>
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Last Name</label>
+            <div class="col-lg-10">
+              <%= f.text_field :last_name, class: 'form-control', placeholder: 'Last Name' %>
+            </div>
+          </div>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Country</label>
+            <div class="col-lg-10">
+              <%= f.country_select :country, nil, {}, { class: 'form-control' } %>
+            </div>
+          </div>
+        </fieldset>
 
-<%= link_to "Back", :back %>
+        <fieldset class="devise-fieldset">
+          <legend>Current Password</legend>
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Current Password</label>
+            <div class="col-lg-10">
+              <%= f.password_field :current_password, autocomplete: 'off', class: 'form-control', placeholder: 'Current Password' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+              <%= f.submit 'Update Profile', class: 'btn btn-primary' %>
+            </div>
+          </div>
+        </fieldset>
+    <% end %>
+  </div>
+
+  <hr />
+
+  <div align="center">
+    <h1>Cancel Account</h1>
+    <p><%= button_to 'Cancel My Account', registration_path(resource_name), class: 'btn btn-lg btn-danger', style: 'width: 350px', data: { confirm: 'Are you sure you would like to cancel your account? You cannot take this back.' }, method: :delete %></p>
+  </div>
+</div>
+
+
+
+
+
+
