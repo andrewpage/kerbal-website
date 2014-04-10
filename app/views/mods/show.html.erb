@@ -1,25 +1,30 @@
 <div class="row">
 
   <div class="col-md-3">
+
     <div class="btn-group btn-group-justified">
 
-      <%
-         subscribed = (!current_account.subscribed_mods.include? @mod)
-
-         subscribe_text = (subscribed) ? 'Subscribe' : 'Unsubscribe'
-         subscribe_class = (subscribed) ? 'success' : 'danger'
-      %>
 
       <%= link_to 'Download', download_mod_path, class: 'btn btn-lg btn-primary' %>
-      <%= link_to subscribe_text, subscribe_mod_path, class: 'btn btn-lg btn-' + subscribe_class %>
+      <% if account_signed_in? %>
+          <%
+             subscribed = (!current_account.subscribed_mods.include? @mod)
+
+             subscribe_text = (subscribed) ? 'Subscribe' : 'Unsubscribe'
+             subscribe_class = (subscribed) ? 'success' : 'danger'
+          %>
+          <%= link_to subscribe_text, subscribe_mod_path, class: 'btn btn-lg btn-' + subscribe_class %>
+      <% end %>
     </div>
 
-    <br />
-
-    <div align="center"><i><%= link_to 'Whats the difference?', faq_pages_path %></i></div>
+    <br/>
+    <% if account_signed_in? %>
+        <div align="center"><i><%= link_to 'Whats the difference?', faq_pages_path %></i></div>
+    <% end %>
 
     <% if current_account == @mod.account %>
-        <br /> <hr />
+        <br/>
+        <hr/>
         <div class="btn-group btn-group-justified">
           <%= link_to 'Edit', edit_mod_path, class: 'btn btn-warning btn-lg' %>
           <%= link_to 'Destroy', @mod, class: 'btn btn-danger btn-lg', method: :delete %>
@@ -32,7 +37,7 @@
   <div class="col-md-9">
 
     <div class="thumbnail">
-      <%= image_tag @mod.image.url %>
+      <%= image_tag @mod.banner.url(:medium) %>
       <div class="caption-full">
         <h4 class="pull-right">Version <%= @mod.version %></h4>
         <h4><a href="#"><%= @mod.name %></a></h4>
@@ -41,24 +46,29 @@
       </div>
       <div class="ratings">
         <p class="pull-right">
-          <%= @mod.download_count %> downloads<br />
+          <%= @mod.download_count %> downloads<br/>
           <%= @mod.vote_tally %> likes
         </p>
 
         <%
-            if account_signed_in?
-              like_class = (current_account.voted_up_on? @mod) ? 'success' : 'primary'
-              dislike_class = (current_account.voted_down_on? @mod) ? 'danger' : 'primary'
-            else
-              like_class = 'primary'
-              dislike_class = 'primary'
-            end
+           if account_signed_in?
+             like_class = (current_account.voted_up_on? @mod) ? 'success' : 'default'
+             dislike_class = (current_account.voted_down_on? @mod) ? 'danger' : 'default'
+           else
+             like_class = 'primary'
+             dislike_class = 'primary'
+           end
         %>
-        <p>
-          <span class="label label-default"></span>
-          <%= link_to fa_icon('thumbs-up'), like_mod_path, class: 'btn btn-sm btn-' + like_class %>
-          <%= link_to fa_icon('thumbs-down'), dislike_mod_path, class: 'btn btn-sm btn-' + dislike_class %>
-        </p>
+        <% if account_signed_in? %>
+            <p>
+              <span class="label label-default"></span>
+              <%= link_to fa_icon('thumbs-up'), like_mod_path, class: 'btn btn-sm btn-' + like_class %>
+              <%= link_to fa_icon('thumbs-down'), dislike_mod_path, class: 'btn btn-sm btn-' + dislike_class %>
+            </p>
+        <% else %>
+            <br />
+        <% end %>
+
         <p>
           <% @mod.tags.each do |tag| %>
               <span class="label label-default"><%= link_to tag, mods_path(tag: tag.to_s), class: 'tag-link' %></span>
@@ -73,8 +83,10 @@
           var disqus_shortname = 'kerbalmods';
 
           /* * * DON'T EDIT BELOW THIS LINE * * */
-          (function() {
-              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          (function () {
+              var dsq = document.createElement('script');
+              dsq.type = 'text/javascript';
+              dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
           })();

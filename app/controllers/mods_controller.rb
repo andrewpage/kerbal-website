@@ -80,7 +80,7 @@ class ModsController < ApplicationController
 	def download
     @mod = Mod.find(params[:id])
 
-    redirect_to @mod.mod_file.url
+    redirect_to @mod.mod.url
 
     @mod.increment(:download_count).save
   end
@@ -111,7 +111,7 @@ class ModsController < ApplicationController
 
 	private
 	def mod_params
-		params.require(:mod).permit(:name, :description, :description_short, :version, :tag_list, :download_count, :image, :youtube_url, :mod_file)
+		params.require(:mod).permit(:name, :description, :description_short, :version, :tag_list, :download_count, :thumbnail, :banner, :youtube_url, :mod)
   end
 
   def require_permission

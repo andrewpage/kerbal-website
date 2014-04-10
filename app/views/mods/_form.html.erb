@@ -3,6 +3,8 @@
     <hr/>
 
   <% if @mod.errors.full_messages.any? %>
+      <% @mod.errors.delete(:mod_file) %>
+      <% @mod.errors.delete(:image) %>
       <div class="alert alert-danger alert-block">
         <button type="button" class="close" data-dismiss="alert">x</button>
         <h4><%= @mod.errors.full_messages.count %> errors prevented this form from being registered:</h4>
@@ -44,19 +46,27 @@
           </fieldset>
 
           <fieldset>
-            <legend>Mod File</legend>
+            <legend>Mod</legend>
             <div class="form-group">
               <div class="col-lg-12">
-                <%= f.file_field :mod_file, class: 'form-control input-lg' %>
+                <%= f.file_field :mod, class: 'form-control input-lg' %>
               </div>
             </div>
           </fieldset>
 
           <fieldset>
-            <legend>Image</legend>
+            <legend>Images</legend>
             <div class="form-group">
-              <div class="col-lg-12">
-                <%= f.file_field :image, class: 'form-control input-lg' %>
+              <label class="col-lg-2 control-label">Thumbnail (320x150)</label>
+              <div class="col-lg-10">
+                <%= f.file_field :thumbnail, class: 'form-control input-lg' %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-lg-2 control-label">Banner (800x300)</label>
+              <div class="col-lg-10">
+                <%= f.file_field :banner, class: 'form-control input-lg' %>
               </div>
             </div>
           </fieldset>
