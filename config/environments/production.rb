@@ -81,11 +81,11 @@ Kerbalsite::Application.configure do
   config.assets.paths << "#{Rails}/vendor/assets/fonts"
   config.assets.paths << "#{Rails.root}/app/assets/fonts"
 
-  config.assets.precompile += ["fontawesome-webfont.ttf",
-                               "fontawesome-webfont.eot",
-                               "fontawesome-webfont.svg",
-                               "fontawesome-webfont.woff"]
-  config.assets.enabled = true
+  config.assets.precompile << Proc.new { |path|
+    if path =~ /\.(eot|svg|ttf|woff)\z/
+      true
+    end
+  }
 
   config.paperclip_defaults = {
       :storage => :s3,
