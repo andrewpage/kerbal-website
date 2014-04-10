@@ -27,5 +27,6 @@ module Kerbalsite
                                  "fontawesome-webfont.eot",
                                  "fontawesome-webfont.svg",
                                  "fontawesome-webfont.woff"]
+    config.assets.enabled = true
   end
 end
