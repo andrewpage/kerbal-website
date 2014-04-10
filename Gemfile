@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.2'
+gem 'rails', '4.1.0'
 
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -16,8 +16,6 @@ gem 'country_select'
 
 gem 'searchkick'
 gem 'utf8_enforcer_workaround'
-
-gem 'mailboxer'
 
 gem 'paperclip'
 gem 'aws-sdk'

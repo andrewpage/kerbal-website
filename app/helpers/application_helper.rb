@@ -8,7 +8,7 @@ module ApplicationHelper
 	end
 
 	def better_flash(type)
-		switched = { :notice => :success, :alert => :danger }
+		switched = { 'notice' => 'success', 'alert' => 'danger' }
 
 		if switched.key?(type)
 			switched[type]
