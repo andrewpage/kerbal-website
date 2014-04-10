@@ -17,7 +17,7 @@ gem 'country_select'
 gem 'searchkick'
 gem 'utf8_enforcer_workaround'
 
-gem 'paperclip'
+gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'aws-sdk'
 
 gem 'will_paginate'

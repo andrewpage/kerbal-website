@@ -3,7 +3,7 @@ class Account < ActiveRecord::Base
   devise :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :mods
+  has_many :mods, dependent: :destroy
 
   has_and_belongs_to_many :subscribed_mods, class_name: 'Mod'
 
