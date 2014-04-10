@@ -1,40 +1,40 @@
 class Mod < ActiveRecord::Base
-	belongs_to :account
+  CONTENT_ALLOWED_IMAGE = Settings.file_upload.allowed.image.to_s
+  CONTENT_ALLOWED_ARCHIVE = Settings.file_upload.allowed.archive.to_s
+
+  belongs_to :account
   has_and_belongs_to_many :subscribed_accounts, class_name: 'Account'
 
   enum mod_type: [ :plugin, :part, :craft ]
+
+  acts_as_votable # Likes / Dislikes
+  acts_as_taggable
 
   # Paperclip
   has_attached_file :thumbnail, styles: { thumb: '320x150#' }
   has_attached_file :banner, styles: { medium: '800x300#' }
   has_attached_file :mod
 
+  searchkick # Search Engine
+
   after_thumbnail_post_process :rename_thumbnail
   after_banner_post_process :rename_banner
 
   before_save :rename_mod_file
 
+  # Validations
 
-	#belongs_to :category
-	#has_and_belongs_to_many :tags
-
-  acts_as_votable # Likes / Dislikes
-
-  acts_as_taggable
-
-  searchkick # Search Engine
-
-  # Thumbnail
+  ## Thumbnail
   validates_attachment_presence :thumbnail
-  validates_attachment_content_type :thumbnail, :message => 'is an invalid image format. Accepted formats: ' + Settings.file_upload.allowed.image.to_s, :content_type => Settings.file_upload.allowed.image
+  validates_attachment_content_type :thumbnail, :message => 'is an invalid image format. Accepted formats: ' + CONTENT_ALLOWED_IMAGE, :content_type => CONTENT_ALLOWED_IMAGE
 
-  # Banner
+  ## Banner
   validates_attachment_presence :banner
-  validates_attachment_content_type :banner, :message => 'is an invalid image format. Accepted formats: ' + Settings.file_upload.allowed.image.to_s, :content_type => Settings.file_upload.allowed.image
+  validates_attachment_content_type :banner, :message => 'is an invalid image format. Accepted formats: ' + CONTENT_ALLOWED_IMAGE, :content_type => CONTENT_ALLOWED_IMAGE
 
-  # Mod File
+  ## Mod File
   validates_attachment_presence :mod
-  validates_attachment_content_type :mod, :message => 'is an invalid archive format. Accepted formats: ' + Settings.file_upload.allowed.archive.to_s, :content_type => Settings.file_upload.allowed.archive
+  validates_attachment_content_type :mod, :message => 'is an invalid archive format. Accepted formats: ' + CONTENT_ALLOWED_IMAGE, :content_type => CONTENT_ALLOWED_IMAGE
   validates_attachment_size :mod, :less_than => 200.megabytes
 
   # Validations
