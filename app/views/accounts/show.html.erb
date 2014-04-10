@@ -40,8 +40,8 @@
 
       <ul class="nav nav-tabs" id="myTab">
         <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
-        <li><a href="#mods" data-toggle="tab">Mods</a></li>
-        <li><a href="#messages" data-toggle="tab">Messages</a></li>
+        <li><a href="#mods" data-toggle="tab">My Mods</a></li>
+        <li><a href="#subscribed" data-toggle="tab">Subscribed</a></li>
       </ul>
 
       <div class="tab-content">
@@ -53,8 +53,8 @@
             <%= render partial: 'mods', locals: { account: @user } %>
         </div>
 
-        <div class="tab-pane" id="messages">
-            <%= render partial: 'messages', locals: { account: @user } %>
+        <div class="tab-pane" id="subscribed">
+            <%= render partial: 'subscribed', locals: { account: @user } %>
         </div>
 
       </div>

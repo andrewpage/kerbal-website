@@ -5,7 +5,7 @@
     <div class="btn-group btn-group-justified">
 
 
-      <%= link_to 'Download', download_mod_path, class: 'btn btn-lg btn-primary' %>
+      <%= link_to 'Download', download_mod_path, class: 'btn btn-lg btn-info' %>
       <% if account_signed_in? %>
           <%
              subscribed = (!current_account.subscribed_mods.include? @mod)

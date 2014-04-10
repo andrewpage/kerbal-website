@@ -1,16 +1,15 @@
 <h2></h2>
 
-<% if !account.mods.empty? %>
+<% if !account.subscribed_mods.empty? %>
     <div class="table-responsive">
       <table class="mods borderless">
-        <% account.mods.each do |mod| %>
+        <% account.subscribed_mods.each do |mod| %>
             <tr>
               <td><h4><%= link_to mod.name, mod %></h4></td>
               <% if current_account == account %>
                   <td>
                     <div class="pull-right">
-                      <%= link_to 'Edit', edit_mod_path(mod), class: 'btn btn-warning action-button' %>
-                      <%= link_to 'Delete', mod, class: 'btn btn-danger action-button', method: :delete %>
+                      <%= link_to 'Unsubscribe', subscribe_mod_path(mod), class: 'btn btn-danger action-button' %>
                     </div>
                   </td>
               <% end %>
@@ -19,5 +18,5 @@
       </table>
     </div>
 <% else %>
-    <h2><i>You do not have any mods.</i></h2>
+    <h2><i>You are not subscribed to any mods.</i></h2>
 <% end %>

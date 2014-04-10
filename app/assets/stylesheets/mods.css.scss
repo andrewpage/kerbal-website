@@ -66,3 +66,32 @@ div.block-form {
   color: #f5f5f5;
   text-decoration: none;
 }
+
+.action-button {
+  width: 125px;
+}
+
+table.mods {
+  width: 100%;
+
+  tr:nth-child(even) {
+    background-color: #f5f5f5;
+  }
+
+  tr {
+    border-bottom: 1px solid black;
+    border-color:#DBDBDB;
+  }
+
+  tr:last-child {
+    border-bottom: none;
+  }
+
+  td {
+    padding: 10px;
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+}
